@@ -61,7 +61,9 @@ function App() {
         </button>
         <br />
         <br />
-        {time > -1 && <span>Mandelbrot set took {time}ms to generate.</span>}
+        {!loading && time > -1 && (
+          <span>Mandelbrot set took {time}ms to generate.</span>
+        )}
       </p>
       <canvas width="1000" height="800" id="canvas"></canvas>
       {loading && <p id="spinner">Loading...</p>}
