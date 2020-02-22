@@ -1,5 +1,6 @@
 import React from "react";
 import { generatePixelMap } from "./lib";
+import { greet } from "rust";
 
 // Set pixel in a canvas pixel array
 export function setPixel(data, width, x, y, r, g, b, a) {
@@ -25,6 +26,7 @@ function App() {
   const [loading, setLoading] = React.useState(false);
 
   const regenerate = React.useCallback(() => {
+    greet();
     setLoading(true);
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
