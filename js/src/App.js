@@ -1,7 +1,6 @@
 import React from "react";
 import { generatePixelMap } from "./lib";
-import { greet } from "rust";
-
+import { say_hello } from "rust";
 // Set pixel in a canvas pixel array
 export function setPixel(data, width, x, y, r, g, b, a) {
   const offset = (x + y * width) * 4;
@@ -26,7 +25,6 @@ function App() {
   const [loading, setLoading] = React.useState(false);
 
   const regenerate = React.useCallback(() => {
-    greet();
     setLoading(true);
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
@@ -53,12 +51,17 @@ function App() {
     regenerate();
   }, [regenerate]);
 
+  const handleRustClicked = React.useCallback(() => {
+    console.log(say_hello());
+  }, []);
+
   return (
     <div>
       <p id="time">
         <button onClick={handleRegenerateRequested}>
           {loading ? "Generating..." : "Generate"}
         </button>
+        <button onClick={handleRustClicked}>Say hello from rust</button>
         <br />
         <br />
         {!loading && time > -1 && (
