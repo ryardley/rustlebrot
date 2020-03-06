@@ -1,9 +1,6 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { generatePixelMap } from "./lib";
+import { generate_pixel_map } from "rust";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("returns the same values", () => {
+  expect(generatePixelMap(20, 20)).toEqual(generate_pixel_map(20, 20).data);
 });

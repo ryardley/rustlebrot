@@ -23,7 +23,7 @@ function escapeVelocity(c) {
   for (let i = 0; i < 1000; i++) {
     z = plus(times(z, z), c);
     if (magnitude(z) > 2.0) {
-      return i / 50;
+      return i / 50.0;
     }
   }
   return 0;
@@ -36,8 +36,9 @@ export function calculatePoint(x, y, lensW, lensH, width, height) {
 }
 
 export function calculatePixelColor(x, y, width, height) {
-  const coords = calculatePoint(x, y, 5, 4, width, height);
-  const red = 255 * escapeVelocity(coords);
+  const coords = calculatePoint(x, y, 5.0, 4.0, width, height);
+  const escape = Math.min(escapeVelocity(coords), 1);
+  const red = Math.floor(255.0 * escape);
   return rgba(red, 0, 0, 255);
 }
 
