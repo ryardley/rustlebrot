@@ -16,4 +16,10 @@ To run:
 
 <img src="output.jpeg" />
 
+- [x] Generate basic linear mandelbrot set in JS
+- [x] Wasm bridge
+- [x] Generate basic linear mandelbrot set in Rust
+- [ ] Multithreading and concurrency in Rust
+- [ ] Multithreading and concurrency in JS
+
 <img src="dog.gif" />
