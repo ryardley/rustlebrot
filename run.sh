@@ -1,0 +1,1 @@
+cd rust && wasm-pack build && cd ../js && rm -rf node_modules && yarn && yarn start
