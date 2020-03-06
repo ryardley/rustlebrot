@@ -14,6 +14,6 @@ To run:
 ./run.sh
 ```
 
-Me with Rust:
+<img src="output.jpeg" />
 
 <img src="dog.gif" />
